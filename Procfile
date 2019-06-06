@@ -1,1 +1,1 @@
-web: gunicorn portfolio_project.wsgi --log-file=-
+web: gunicorn asliceofdurham.wsgi --log-file=-
