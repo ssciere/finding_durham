@@ -1,41 +1,95 @@
-
- 
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="en">
-          
-        <head>
-            <title>Finding Durham</title>
-        
-                
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    
-                       
-                    <!-- jQuery library -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    
-                    <!-- Latest compiled JavaScript -->
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                    <link type="text/css" rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/sciere-static/style_sheets/base.css" />
-        
-        
-        </head>
-        <body>
- 
+<head>
+  <title>Finding durham</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: white;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: white;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
 
-    <div class="container" style = "color:white" id="top" >
+
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+        <div class="well">
+        <p><b>About This Site</b><br><br>
+	  <img style = "width :100%" src="http://stevesciere.com/static/steve1.jpg" alt="steve">  <br><br>                                 
+	
+	Hi, I'm Steve Sciere, I made this website as a means to learn more about Web Development as I transition to a career in that field. I also wanted to make something to give back to the city of Durham, where I have lived for many years. I hope you'll consider trying out the businesses you discover here!
+	</p>
+      </div>
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <img style = "width:100%" src="https://sciere-static.s3.us-east-2.amazonaws.com/images/homepage/main_pic.jpg"  alt="Durham" /> 	
+      
         <br><br>
-    <h4>We've found an exciting small business we think you'll love!</h4>
+      <h4>I found an exciting small business I think you'll love!</h4>
 
-    <h3 style="color: #f3eded";>{{ dict.first }}</h4> 
+    <h3 style="color:black";>{{ dict.first }}</h3> 
     
         
 
     <br>
     <p><b></b><h3>
-    Thanks for visiting <i>Finding Durham</i>!  <br><br>
-    <a href = "/">Try again</a><br>
+    Thanks for visiting <i>Finding Durham</i>!  <br><br> <a href = "/">Try again</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   
    </p>
+    </div>
+    <div class="col-sm-2 sidenav">
+    
+      <div class="well">
+        <p><b>Technologies</b><br><br>
+	<img style = "width:100%"  src = "https://sciere-static.s3.us-east-2.amazonaws.com/images/homepage/tech.jpg" alt = "robot"/><br><br>
+	  I built this site using Python and Django as a web framework. A mathematical formula compares user preferences with data Django pulls from an SQLite database to find a business the user might like. I plan to add additional pieces to strengthen my Python and Django skills moving forward. I'm also learning React and plan to  use it to improve the front-end of the site.
+	</p>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright 2019</p>
+</footer>
+
+</body>
 </html>
