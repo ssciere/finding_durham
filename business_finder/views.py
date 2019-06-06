@@ -60,9 +60,14 @@ def find_best_match_view(request): #loops through all the locations compares the
                 best_rating = compatibility_rating
                 best_location = location
                 best_loc_dict = {'first':best_location}
+    y = Businesses.objects.get(name=best_location) #pulls all data for chosen location 
+    best_business_address = y.address
+    best_business_zip = y.zipCode
+    best_business_phone = y.phoneNumber
+    best_business_url = y.link
     
-
-    return render(request, "./announce_venue.html", {'dict': best_loc_dict})
+    return render(request, "./announce_venue.html", {'dict': best_loc_dict, 'address': best_business_address,
+     'zip':best_business_zip, 'phone':best_business_phone, 'url':best_business_url })
     return HttpResponse(best_location)
 
 
