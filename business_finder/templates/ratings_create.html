@@ -1,0 +1,83 @@
+
+ 
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+          
+        <head>
+                <title>Finding Durham</title>
+        
+                
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                    
+                       
+                    <!-- jQuery library -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    
+                    <!-- Latest compiled JavaScript -->
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                    <link type="text/css" rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/sciere-static/style_sheets/base.css" />
+        
+        
+        </head>
+        <body>
+        <div class="container-fluid">  
+            <br>
+                <div class="jumbotron">
+                        <img id = "fun_finder" src = "https://s3.us-east-2.amazonaws.com/sciere-static/images/sidebars/train.jpg" alt="Durham Fun Finder" />  
+                        <p style = "color:black"><b>Welcome to Finding Durham<br>
+                            Your guide to finding great small businesses to support in the world's greatest city<br><br>
+                           
+                           Please tell us about yourself, and we'll find a small business you'll love!</b><br><br></p>
+                    </div>       
+
+                <br>
+       
+    
+    
+    <form action="announce_venue" method="post"> {% csrf_token %}
+        <label for="general">Which of these excites you the most?</label><br><br>
+        &nbsp;&nbsp;<input id="general" type="radio" name="general" value="10"></html>&nbsp;A morning at a farmer's market<br>
+        &nbsp;&nbsp;<input id="general" type="radio" name="general" value="2" >&nbsp; A night on the town<br>
+        &nbsp;&nbsp;<input id="general" type="radio" name="general" value="6"checked>&nbsp; An afternoon at the mall<br>
+        &nbsp;&nbsp;<input id="general" type="radio" name="general" value="4" >&nbsp; Dinner and a movie<br>
+        <br><br>
+        <label for="car">What kind of car would you most like to own?</label><br><br>
+        &nbsp;&nbsp;<input id="car" type="radio" name="car" value="6"></html>&nbsp;A red sports car<br>
+        &nbsp;&nbsp;<input id="car" type="radio" name="car" value="8">&nbsp;A roomy SUV<br>
+        &nbsp;&nbsp;<input id="car" type="radio" name="car" value="10"checked>&nbsp;A hybrid or electric <br>
+        &nbsp;&nbsp;<input id="car" type="radio" name="car" value="2" >&nbsp; Something classy<br>
+        <br><br>
+        <label for="golf">What is your favorite type of golf?</label><br><br>
+        &nbsp;&nbsp;<input id="golf" type="radio" name="golf" value="2"></html>&nbsp;Real golf<br>
+        &nbsp;&nbsp;<input id="golf" type="radio" name="golf" value="5">&nbsp;Miniature golf<br>
+        &nbsp;&nbsp;<input id="golf" type="radio" name="golf" value="8"checked>&nbsp;Disc golf<br>
+        &nbsp;&nbsp;<input id="golf" type="radio" name="golf" value="10" >&nbsp; What is golf?<br>
+        <br><br>  
+        <label for="house">Where would you most like to live?</label><br><br>
+        &nbsp;&nbsp;<input id="house" type="radio" name="house" value="2"></html>&nbsp;Small apartment in the middle of a city<br>
+        &nbsp;&nbsp;<input id="house" type="radio" name="house" value="6" >&nbsp;Country home with a big front porch<br>
+        &nbsp;&nbsp;<input id="house" type="radio" name="house" value="8"checked>&nbsp; House in the Suburb that is kind of close to everything <br>
+        &nbsp;&nbsp;<input id="house" type="radio" name="house" value="10" >&nbsp; Luxury aparment at the top of a big building<br>
+        <br><br> 
+        <label for="morning">What do you like to do on a Saturday morning?</label><br><br>
+        &nbsp;&nbsp;<input id="morning" type="radio" name="morning" value="4"></html>&nbsp; Get things done<br>
+        &nbsp;&nbsp;<input id="morning" type="radio" name="morning" value="8">&nbsp; Get outside for some exercise<br>
+        &nbsp;&nbsp;<input id="morning" type="radio" name="morning" value="2"checked>&nbsp; Have a big ol' breakfast<br>
+        &nbsp;&nbsp;<input id="morning" type="radio" name="morning" value="10" >&nbsp; Stay in bed<br>
+        <br><br>
+        <input type="submit" value="submit" style = "color:black">
+        <br><br><br>
+    </form>
+</div>
+</body>
+</html>
+    
+    
+    
+
+
+
+
