@@ -2,7 +2,6 @@
 from django import forms
 from .models import UsersRatings
 
-
 class RatingsForm(forms.ModelForm):
     class Meta:
         model = UsersRatings
@@ -13,6 +12,7 @@ class RatingsForm(forms.ModelForm):
             'house',
             'morning'
             ]
+
 
 
 

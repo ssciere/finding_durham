@@ -7,28 +7,27 @@ import random
 from .models import Businesses
 
 
-def ratings_create_view(request):
+def takeUserInputView(request):
     form = RatingsForm(request.POST or None)
     if form.is_valid():
         form.save()
     context = {
         'form': form
     }
-    return render(request, "ratings_create.html", context)
+    return render(request, "take_user_input.html", context)
    
+"""The 'findBestMatchView' function pulls data from the database and assigns each business a compadibility rating
+    based on how well the locations ratings match the customers ratings.  The best location and it's rating
+    is stored in variables.  In the event that two businesses are tied for best rating, a  random number
+    generator is used to break the tie"""
 
-
-def find_best_match_view(request): #loops through all the locations compares their category ratings to the user input to create compatibility rating
+def findBestMatchView(request):
     
-    possible_destinations = {"Bull City Ciderworks":(8,9,8,9,2),"Fullsteam Brewery":(4,7,6,7,6),"Durham Distillery":(3,3,3,9,5),
-    "Honeygirl Meadery":(1,4,8,3,7),"Hi-Wire Brewing":(4,5,8,3,10),"James Joyce Irish Pub":(7,6,9,5,4),"Bull City Apparel & Customs":(6,9,2,1,5),
-    "Boxcar Barcade":(7,7,7,9,4),"Quarter Horse Barcade":(6,2,3,4,6), "Parts and Labor":(5,10,6,2,6),"106 Main":(1,10,8,1,10),
-    "Durham Short Run Shirts":(9,10,7,1,2),"Pompieri Pizza":(8,3,5,9,3) }
     possible_destinations = {}
     y = 1
     dbSizeFinder = Businesses.objects.last() #The next two lines find out how many entries are in the Businesses table
     numOfBusinesses = dbSizeFinder.pk
-    while y <= numOfBusinesses:
+    while y <= numOfBusinesses: 
         
         x = Businesses.objects.get(pk=y)  
         possible_destinations.update({x.name:(x.general,x.car,x.golf,x.house,x.morning)})
@@ -61,14 +60,14 @@ def find_best_match_view(request): #loops through all the locations compares the
                 best_location = location
                 best_loc_dict = {'first':best_location}
     y = Businesses.objects.get(name=best_location) #pulls all data for chosen location 
-    best_business_address = y.address
+    best_business_address = y.address #the following lines assign variables to be sent to the template
     best_business_zip = y.zipCode
     best_business_phone = y.phoneNumber
     best_business_url = y.link
-    
-    return render(request, "./announce_venue.html", {'dict': best_loc_dict, 'address': best_business_address,
+    #the remaining likes pass the info for the best business to the 'announce_business' template
+    return render(request, "./announce_business.html", {'dict': best_loc_dict, 'address': best_business_address,
      'zip':best_business_zip, 'phone':best_business_phone, 'url':best_business_url })
-    return HttpResponse(best_location)
+    
 
 
       
